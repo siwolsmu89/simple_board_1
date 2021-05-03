@@ -1,0 +1,46 @@
+.list-table {
+    margin: 30px;
+    border-radius: 5px;
+    border: none;
+    border-collapse: collapse;
+    width: 70%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.list-table td, .list-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.list-table thead th {
+    color: #ffffff;
+    background: black;
+}
+
+.list-table thead th:nth-child(2) {
+    width: 80%;
+}
+
+.list-table td {
+    border-bottom: 1px solid lightgray;
+}
+
+
+
+.pagination {
+    width: 70%;
+    margin: 30px;
+    text-align: right;
+}
+
+.pagination span {
+    border: 1px solid lightgray;
+    display: inline-block;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius:40%;
+}
