@@ -1,4 +1,4 @@
-# Simple Todo List
+# Simple Board
 
 ---
 <h3>Project : simple_board_1</h3>
