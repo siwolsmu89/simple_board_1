@@ -22,5 +22,5 @@ References
 
 - Others
     - React Loader Spinner : https://www.npmjs.com/package/react-loader-spinner
-    - Free Frontend (CSS) : https://freefrontend.com/
-    - Edit button icon : https://www.flaticon.com/free-icons/edit-button
+    - Free Frontend (CSS) : https://freefrontend.com
+    - Button Icons from : https://www.flaticon.com
