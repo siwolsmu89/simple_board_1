@@ -1,9 +1,9 @@
 import {Component} from "react";
 import { connect } from "react-redux";
 import BoardList from "./components/view/board-list/BoardList";
-import {movePageAction} from "./redux/action/actions";
+import {addArticleAction, movePageAction} from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import BoardWrite from "./components/view/board-write/BoardWrite";
+import ArticleWrite from "./components/view/board-write/ArticleWrite";
 import "./App.css";
 
 class App extends Component {
@@ -25,7 +25,9 @@ class App extends Component {
                         />
                     </Route>
                     <Route path="/write">
-                        <BoardWrite />
+                        <ArticleWrite
+                            addArticle={ (title, content) => dispatch(addArticleAction(title, content))}
+                        />
                     </Route>
                 </Router>
             </div>
