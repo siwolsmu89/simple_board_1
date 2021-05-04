@@ -1,5 +1,6 @@
 import {Component} from "react";
 import "./BoardList.css";
+import editIcon from '../../../resources/edit-button.png';
 
 export default class BoardList extends Component {
 
@@ -46,6 +47,14 @@ export default class BoardList extends Component {
 
         return (
             <div className="simple-board-list">
+                <div className="title">
+                    Simple Board
+                </div>
+                <section className="icon-box-wrapper">
+                    <div className="icon-box">
+                        <img src={editIcon} alt="edit button icon"/>
+                    </div>
+                </section>
                 <section className="list-table-wrapper">
                     <table className="list-table">
                         <thead>
