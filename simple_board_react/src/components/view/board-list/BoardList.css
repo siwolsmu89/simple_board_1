@@ -34,7 +34,9 @@
     text-align: right;
 }
 
-.pagination span {
+.pagination button {
+    background-color: white;
+    padding: 0;
     border: 1px solid lightgray;
     display: inline-block;
     text-align: center;
@@ -43,4 +45,20 @@
     margin: 5px;
     cursor: pointer;
     border-radius:40%;
+}
+
+.pagination button:hover {
+    background-color: #848484;
+}
+
+.pagination button.btn-page.active {
+    border: 1px solid #848484;
+    background-color: black;
+    color: white;
+}
+
+.pagination button.disabled {
+    cursor: default;
+    background-color: #e1e1e1;
+    opacity: 0.5;
 }

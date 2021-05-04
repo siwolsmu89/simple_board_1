@@ -3,20 +3,25 @@ import "./BoardList.css";
 
 export default class BoardList extends Component {
 
-    setPagination(pagination) {
+    setPagination(pagination, movePage) {
         const { currentPage, pageSize, lastPage } = pagination;
         let pageNumbers = [];
 
-        let pageEnd = currentPage + pageSize - 1;
+        let pageStart = pageSize * Math.ceil(currentPage / pageSize - 1) + 1;
+
+        let pageEnd = pageStart + pageSize - 1;
         pageEnd = pageEnd > lastPage ? lastPage : pageEnd;
 
-        for (let i = currentPage; i<=pageEnd; i++) {
+        for (let i = pageStart; i <= pageEnd; i++) {
             pageNumbers.push(i);
         }
 
         return pageNumbers.map(
             (pageNumber) => (
-                <span className="btn-page">{pageNumber}</span>
+                <button
+                    className={ `btn-page ${pagination.currentPage === pageNumber ? 'active' : '' }` }
+                    onClick={ () => movePage(pageNumber) }
+                >{pageNumber}</button>
             )
         );
     }
@@ -34,10 +39,10 @@ export default class BoardList extends Component {
     }
 
     render() {
-        const { articles, pagination } = this.props;
+        const { articles, pagination, movePage } = this.props;
 
         const articleRows = this.setArticleRows(articles);
-        const pageList = this.setPagination(pagination);
+        const pageList = this.setPagination(pagination, movePage);
 
         return (
             <div className="simple-board-list">
@@ -57,9 +62,25 @@ export default class BoardList extends Component {
                 </section>
                 <section className="pagination-wrapper">
                     <div className="pagination">
-                        <span className="btn-prev">&laquo;</span>
+                        <button
+                            className={ `btn-prev ${pagination.currentPage === 1 ? 'disabled' : '' }` }
+                            onClick={ () => {
+                                if (pagination.currentPage === 1) {
+                                    return;
+                                }
+                                movePage(pagination.currentPage - 1)
+                            } }
+                        >&laquo;</button>
                             { pageList }
-                        <span className="btn-next">&raquo;</span>
+                        <button
+                            className={ `btn-next ${pagination.currentPage === pagination.lastPage ? 'disabled' : '' }` }
+                            onClick={ () => {
+                                if (pagination.currentPage === pagination.lastPage) {
+                                    return;
+                                }
+                                movePage(pagination.currentPage + 1)
+                            } }
+                        >&raquo;</button>
                     </div>
                 </section>
             </div>

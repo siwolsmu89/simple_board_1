@@ -7,9 +7,9 @@ const initialState = {
         {no:2, title: 'TTT 2', comments: [1, 2, 3], views: 15}
     ],
     pagination: {
-        currentPage: 1,
+        currentPage: 4,
         pageSize: 5,
-        lastPage: 10
+        lastPage: 16
     }
 }
 
