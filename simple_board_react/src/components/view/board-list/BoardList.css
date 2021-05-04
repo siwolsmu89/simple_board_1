@@ -5,6 +5,7 @@
 }
 
 .icon-box img {
+    margin: 3px;
     width: 20px;
     padding: 2px;
     border: 2px solid gray;
@@ -64,14 +65,14 @@
 .pagination button {
     background-color: white;
     padding: 0;
-    border: 1px solid lightgray;
+    border: 2px solid lightgray;
     display: inline-block;
     text-align: center;
     width: 25px;
     height: 25px;
     margin: 5px;
     cursor: pointer;
-    border-radius:40%;
+    border-radius:20%;
 }
 
 .pagination button:hover {
