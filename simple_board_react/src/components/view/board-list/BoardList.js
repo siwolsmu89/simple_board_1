@@ -1,6 +1,7 @@
 import {Component} from "react";
 import "./BoardList.css";
 import editIcon from '../../../resources/edit-button.png';
+import {Link} from "react-router-dom";
 
 export default class BoardList extends Component {
 
@@ -20,6 +21,7 @@ export default class BoardList extends Component {
         return pageNumbers.map(
             (pageNumber) => (
                 <button
+                    key={ pageNumber }
                     className={ `btn-page ${pagination.currentPage === pageNumber ? 'active' : '' }` }
                     onClick={ () => movePage(pageNumber) }
                 >{pageNumber}</button>
@@ -30,7 +32,10 @@ export default class BoardList extends Component {
     setArticleRows(articles) {
         return articles.map(
             ({ no, title, comments, views }) => (
-                <tr className="board-item">
+                <tr
+                    key={ no }
+                    className="board-item"
+                >
                     <td className="article-no">{ no }</td>
                     <td className="article-title">{ title } <span className="comment-count">[{ comments.length }]</span></td>
                     <td className="article-views">{ views }</td>
@@ -47,12 +52,14 @@ export default class BoardList extends Component {
 
         return (
             <div className="simple-board-list">
-                <div className="title">
-                    Simple Board
-                </div>
                 <section className="icon-box-wrapper">
                     <div className="icon-box">
-                        <img src={editIcon} alt="edit button icon"/>
+                        <Link to="/write">
+                            <img
+                                src={editIcon}
+                                alt="edit button icon"
+                            />
+                        </Link>
                     </div>
                 </section>
                 <section className="list-table-wrapper">

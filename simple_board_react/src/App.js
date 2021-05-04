@@ -2,6 +2,9 @@ import {Component} from "react";
 import { connect } from "react-redux";
 import BoardList from "./components/view/board-list/BoardList";
 import {movePageAction} from "./redux/action/actions";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import BoardWrite from "./components/view/board-write/BoardWrite";
+import "./App.css";
 
 class App extends Component {
 
@@ -10,11 +13,21 @@ class App extends Component {
 
         return (
             <div className="simple-board-app">
-                <BoardList
-                    articles={ articles }
-                    pagination={ pagination }
-                    movePage={ pageNo => dispatch(movePageAction(pageNo)) }
-                />
+                <div className="title">
+                    Simple Board
+                </div>
+                <Router>
+                    <Route exact path="/">
+                        <BoardList
+                            articles={ articles }
+                            pagination={ pagination }
+                            movePage={ pageNo => dispatch(movePageAction(pageNo)) }
+                        />
+                    </Route>
+                    <Route path="/write">
+                        <BoardWrite />
+                    </Route>
+                </Router>
             </div>
         )
     }
