@@ -37,7 +37,14 @@ export default class ArticleList extends Component {
                     className="board-item"
                 >
                     <td className="article-no">{ no }</td>
-                    <td className="article-title">{ title } <span className="comment-count">[{ comments.length }]</span></td>
+                    <td className="article-title">
+                        <Link
+                            to={ "/detail/" + no }
+
+                        >
+                            { title } <span className="comment-count">[{ comments.length }]</span>
+                        </Link>
+                    </td>
                     <td className="article-views">{ views }</td>
                 </tr>
             )

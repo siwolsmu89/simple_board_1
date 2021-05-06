@@ -5,6 +5,7 @@ import {addArticleAction, movePageAction} from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ArticleWrite from "./components/view/article-write/ArticleWrite";
 import "./App.css";
+import ArticleDetail from "./components/view/article-detail/ArticleDetail";
 
 class App extends Component {
 
@@ -26,9 +27,11 @@ class App extends Component {
                     </Route>
                     <Route path="/write">
                         <ArticleWrite
-                            addArticle={ (title, content) => dispatch(addArticleAction(title, content))}
+                            addArticle={ (title, text) => dispatch(addArticleAction(title, text))}
                         />
                     </Route>
+                    <Route path="/detail/:no"
+                           render={ (states) => <ArticleDetail {...states} articles={ articles } /> } />
                 </Router>
             </div>
         )
