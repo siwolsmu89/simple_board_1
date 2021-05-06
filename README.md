@@ -19,6 +19,7 @@ References
     - Redux Cartoon : http://bestalign.github.io/2015/10/26/cartoon-intro-to-redux
 - node.js
     - node.js express practice : https://github.com/hyungtaek-ryu/nodeJs_express_practice
+    - how to connect node.js to React : https://singa-korean.tistory.com/46
 
 - Others
     - React Loader Spinner : https://www.npmjs.com/package/react-loader-spinner
