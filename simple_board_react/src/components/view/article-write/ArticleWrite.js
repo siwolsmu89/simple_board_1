@@ -10,7 +10,7 @@ export default class ArticleWrite extends Component {
     render() {
         const { addArticle } = this.props;
         let titleInput = '';
-        let contentInput = '';
+        let textInput = '';
 
         return (
             <div>
@@ -35,7 +35,7 @@ export default class ArticleWrite extends Component {
                         </div>
                         <div className="article-content">
                             <textarea
-                                ref={ node => { contentInput = node } }
+                                ref={ node => { textInput = node } }
                                 spellCheck="false"
                                 placeholder="Write Content Here"
                             />
@@ -49,15 +49,15 @@ export default class ArticleWrite extends Component {
                             alt="refresh button icon"
                             onClick={ () => {
                                 titleInput.value = '';
-                                contentInput.value = '';
+                                textInput.value = '';
                             } }
                         />
                         <Link
                             to="/"
                             onClick={ () => {
                                 const articleTitle = titleInput.value;
-                                const articleContent = contentInput.value;
-                                addArticle(articleTitle, articleContent);
+                                const articleText = textInput.value;
+                                addArticle(articleTitle, articleText);
                             } }
                         >
                             <img

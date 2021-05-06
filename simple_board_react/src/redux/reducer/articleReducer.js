@@ -13,7 +13,7 @@ export default function articles(state, action) {
             const newArticle = {
                 no: nextNo,
                 title: action.title,
-                content: action.content,
+                text: action.text,
                 comments: [],
                 views: 0
             }

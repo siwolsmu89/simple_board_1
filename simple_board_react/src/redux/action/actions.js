@@ -5,6 +5,6 @@ export function movePageAction(pageNo) {
     return { type: MOVE_PAGE, pageNo }
 }
 
-export function addArticleAction(title, content) {
-    return { type: ADD_ARTICLE, title, content }
+export function addArticleAction(title, text) {
+    return { type: ADD_ARTICLE, title, text }
 }
