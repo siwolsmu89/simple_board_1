@@ -1,5 +1,4 @@
 import {Component} from "react";
-import axios from "axios";
 import "./ArticleList.css";
 import editIcon from '../../../resources/edit-button.png';
 import {Link} from "react-router-dom";
@@ -65,12 +64,6 @@ export default class ArticleList extends Component {
                             <img
                                 src={editIcon}
                                 alt="edit button icon"
-                                onClick={() => {
-                                    axios({
-                                        url: '/test',
-                                        method: 'get'
-                                    });
-                                }}
                             />
                         </Link>
                     </div>
