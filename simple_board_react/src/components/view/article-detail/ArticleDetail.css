@@ -1,0 +1,39 @@
+.article-detail-wrapper {
+    margin: 0 30px 30px;
+    width: 90%;
+    background-color: white;
+}
+
+.article-detail-title {
+    width: 500px;
+    padding: 5px;
+    margin: 10px;
+    border-bottom: 1px solid #e8e8e8;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.article-detail-content {
+    width: 500px;
+    height: 170px;
+    padding: 15px;
+    border: 2px ridge lightgray;
+    font-size: 1.25rem;
+    resize: none;
+    outline: none;
+    font-family: Arial, serif;
+    margin-bottom: 20px;
+}
+
+.article-detail-comment {
+    margin: 0 30px 30px;
+    width: 500px;
+    height: 100px;
+    padding: 15px;
+    border: 2px dashed lightgray;
+    font-size: 1.25rem;
+    resize: none;
+    outline: none;
+    font-family: Arial, serif;
+}

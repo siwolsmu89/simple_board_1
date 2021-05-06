@@ -40,7 +40,6 @@ export default class ArticleList extends Component {
                     <td className="article-title">
                         <Link
                             to={ "/detail/" + no }
-
                         >
                             { title } <span className="comment-count">[{ comments.length }]</span>
                         </Link>
