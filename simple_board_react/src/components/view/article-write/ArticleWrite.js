@@ -54,9 +54,14 @@ export default class ArticleWrite extends Component {
                         />
                         <Link
                             to="/"
-                            onClick={ () => {
+                            onClick={ (e) => {
                                 const articleTitle = titleInput.value;
                                 const articleText = textInput.value;
+
+                                if (!articleTitle || !articleText) {
+                                    e.preventDefault();
+                                    return;
+                                }
                                 addArticle(articleTitle, articleText);
                             } }
                         >
