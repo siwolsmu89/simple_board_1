@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import BoardList from "./components/view/board-list/BoardList";
 import {addArticleAction, movePageAction} from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ArticleWrite from "./components/view/board-write/ArticleWrite";
+import ArticleWrite from "./components/view/article-write/ArticleWrite";
 import "./App.css";
 
 class App extends Component {
