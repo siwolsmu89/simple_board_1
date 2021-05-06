@@ -1,4 +1,4 @@
-import {ADD_ARTICLE} from "../action/actions";
+import {ADD_ARTICLE, UPDATE_ARTICLE_VIEW} from "../action/actions";
 
 export default function articles(state, action) {
     const { articles } = state;
@@ -19,6 +19,12 @@ export default function articles(state, action) {
             }
 
             return [...articles, newArticle];
+        case UPDATE_ARTICLE_VIEW:
+            const articlesAfterUpdateView = [...articles];
+            const updatedArticle = articlesAfterUpdateView.find(article => article.no === action.no);
+            updatedArticle.views = updatedArticle.views + 1;
+
+            return articlesAfterUpdateView;
         default:
             return articles;
     }

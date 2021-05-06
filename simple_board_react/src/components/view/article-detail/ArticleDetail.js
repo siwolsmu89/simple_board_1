@@ -5,13 +5,20 @@ import './ArticleDetail.css';
 
 export default class ArticleDetail extends Component {
 
+    componentDidMount() {
+        const { updateViewCount } = this.props;
+        const { no } = this.props.match.params;
+
+        updateViewCount(Number(no));
+    }
+
     render() {
         const { articles } = this.props;
         const { no } = this.props.match.params;
-        let articleBody;
+        const detailArticle = articles.find( article => article.no === Number(no));
 
-        if (Number(no)) {
-            const detailArticle = articles.find( article => article.no === Number(no));
+        let articleBody;
+        if (detailArticle) {
             articleBody = (
                 <div className="article-detail">
                     <div className="article-detail-title">

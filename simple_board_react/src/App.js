@@ -1,7 +1,7 @@
 import {Component} from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/view/article-list/ArticleList";
-import {addArticleAction, movePageAction} from "./redux/action/actions";
+import {addArticleAction, movePageAction, updateArticleViewAction} from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ArticleWrite from "./components/view/article-write/ArticleWrite";
 import "./App.css";
@@ -31,7 +31,14 @@ class App extends Component {
                         />
                     </Route>
                     <Route path="/detail/:no"
-                           render={ (states) => <ArticleDetail {...states} articles={ articles } /> } />
+                           render={ (states) =>
+                               <ArticleDetail
+                                   {...states}
+                                   articles={ articles }
+                                   updateViewCount={ (no) => dispatch(updateArticleViewAction(no)) }
+                               />
+                           }
+                    />
                 </Router>
             </div>
         )
