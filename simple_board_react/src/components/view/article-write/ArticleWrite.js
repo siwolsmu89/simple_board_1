@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import homeIcon from "../../../resources/home-button.png";
+import listIcon from "../../../resources/list-button.png";
 import saveIcon from "../../../resources/save-button.png";
 import refreshIcon from "../../../resources/refresh-button.png";
 import "./ArticleWrite.css";
@@ -18,8 +18,8 @@ export default class ArticleWrite extends Component {
                     <div className="icon-box">
                         <Link to="/">
                             <img
-                                src={ homeIcon }
-                                alt="home button icon"
+                                src={ listIcon }
+                                alt="list button icon"
                             />
                         </Link>
                     </div>

@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import homeIcon from "../../../resources/home-button.png";
+import listIcon from "../../../resources/list-button.png";
 import './ArticleDetail.css';
 
 export default class ArticleDetail extends Component {
@@ -37,8 +37,8 @@ export default class ArticleDetail extends Component {
                     <div className="icon-box">
                         <Link to="/">
                             <img
-                                src={ homeIcon }
-                                alt="home button icon"
+                                src={ listIcon }
+                                alt="list button icon"
                             />
                         </Link>
                     </div>
