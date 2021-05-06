@@ -6,10 +6,11 @@ import refreshIcon from "../../../resources/refresh-button.png";
 import "./ArticleWrite.css";
 
 export default class ArticleWrite extends Component {
+
     render() {
         const { addArticle } = this.props;
-        let articleTitle = '';
-        let articleContent = '';
+        let titleInput = '';
+        let contentInput = '';
 
         return (
             <div>
@@ -27,12 +28,14 @@ export default class ArticleWrite extends Component {
                     <div className="article-write">
                         <div className="article-title">
                             <input
+                                ref={ node => { titleInput = node } }
                                 type="text"
                                 placeholder="Write Title Here"
                             />
                         </div>
                         <div className="article-content">
                             <textarea
+                                ref={ node => { contentInput = node } }
                                 spellCheck="false"
                                 placeholder="Write Content Here"
                             />
@@ -44,8 +47,19 @@ export default class ArticleWrite extends Component {
                         <img
                             src={ refreshIcon }
                             alt="refresh button icon"
+                            onClick={ () => {
+                                titleInput.value = '';
+                                contentInput.value = '';
+                            } }
                         />
-                        <Link to="/" onClick={ () => addArticle("test", "test2")}>
+                        <Link
+                            to="/"
+                            onClick={ () => {
+                                const articleTitle = titleInput.value;
+                                const articleContent = contentInput.value;
+                                addArticle(articleTitle, articleContent);
+                            } }
+                        >
                             <img
                                 src={ saveIcon }
                                 alt="save button icon"
