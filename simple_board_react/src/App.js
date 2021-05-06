@@ -1,6 +1,6 @@
 import {Component} from "react";
 import { connect } from "react-redux";
-import BoardList from "./components/view/board-list/BoardList";
+import ArticleList from "./components/view/article-list/ArticleList";
 import {addArticleAction, movePageAction} from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ArticleWrite from "./components/view/article-write/ArticleWrite";
@@ -18,7 +18,7 @@ class App extends Component {
                 </div>
                 <Router>
                     <Route exact path="/">
-                        <BoardList
+                        <ArticleList
                             articles={ articles }
                             pagination={ pagination }
                             movePage={ pageNo => dispatch(movePageAction(pageNo)) }

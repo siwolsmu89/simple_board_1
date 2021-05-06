@@ -1,9 +1,9 @@
 import {Component} from "react";
-import "./BoardList.css";
+import "./ArticleList.css";
 import editIcon from '../../../resources/edit-button.png';
 import {Link} from "react-router-dom";
 
-export default class BoardList extends Component {
+export default class ArticleList extends Component {
 
     setPagination(pagination, movePage) {
         const { currentPage, pageSize, lastPage } = pagination;
