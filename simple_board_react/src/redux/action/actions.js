@@ -18,8 +18,8 @@ export function updateArticleAction(article) {
     return { type: UPDATE_ARTICLE, article }
 }
 
-export function updateArticleViewAction(no) {
-    return { type: UPDATE_ARTICLE_VIEW, no }
+export function updateArticleViewAction(article) {
+    return { type: UPDATE_ARTICLE_VIEW, article }
 }
 
 export function getArticlesAction(articles) {
@@ -35,6 +35,20 @@ export function getArticles(pagination) {
             data: { pagination }
         }).then(response => {
             dispatch(getArticlesAction(response.data));
+        })
+    }
+}
+
+export function updateArticleView(no) {
+    return function(dispatch) {
+        axios({
+            url: '/articleView',
+            method: 'post',
+            dataType: 'json',
+            data: { no }
+        }).then((response) => {
+            const updatedArticle = response.data[0];
+            dispatch(updateArticleViewAction(updatedArticle));
         })
     }
 }

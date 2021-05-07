@@ -31,7 +31,7 @@ export default class ArticleList extends Component {
 
     setArticleRows(articles) {
         return articles.map(
-            ({ no, title, comments, views }) => (
+            ({ no, title, views }) => (
                 <tr
                     key={ no }
                     className="board-item"
@@ -41,7 +41,7 @@ export default class ArticleList extends Component {
                         <Link
                             to={ "/detail/" + no }
                         >
-                            { title } <span className="comment-count">[{ comments.length }]</span>
+                            { title }
                         </Link>
                     </td>
                     <td className="article-views">{ views }</td>

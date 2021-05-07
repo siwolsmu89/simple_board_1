@@ -5,4 +5,15 @@
         SELECT *
         FROM simple_board_1
     </select>
+    <select id="getArticleByNo">
+        SELECT *
+        FROM simple_board_1
+        WHERE `no` = #{no}
+    </select>
+    <update id="updateArticleView">
+        UPDATE simple_board_1
+        SET
+            views = views + 1
+        WHERE `no` = #{no}
+    </update>
 </mapper>

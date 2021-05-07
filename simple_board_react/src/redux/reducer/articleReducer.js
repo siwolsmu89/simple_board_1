@@ -21,13 +21,12 @@ export default function articles(state, action) {
             return [...articles, newArticle];
         case UPDATE_ARTICLE_VIEW:
             const articlesAfterUpdateView = [...articles];
-            const updatedArticle = articlesAfterUpdateView.find(article => article.no === action.no);
-            updatedArticle.views = updatedArticle.views + 1;
+            let updatedIdx = articlesAfterUpdateView.findIndex(article => article.no === action.article.no);
+            articlesAfterUpdateView[updatedIdx] = action.article;
 
             return articlesAfterUpdateView;
         case GET_ARTICLES:
-            console.log("get articles test!!");
-            return articles;
+            return action.articles;
         default:
             return articles;
     }
