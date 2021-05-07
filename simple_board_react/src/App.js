@@ -1,13 +1,17 @@
 import {Component} from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/view/article-list/ArticleList";
-import {addArticleAction, movePageAction, updateArticleViewAction} from "./redux/action/actions";
+import {addArticleAction, getArticles, movePageAction, updateArticleViewAction} from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ArticleWrite from "./components/view/article-write/ArticleWrite";
 import "./App.css";
 import ArticleDetail from "./components/view/article-detail/ArticleDetail";
 
 class App extends Component {
+
+    componentDidMount() {
+        this.props.dispatch(getArticles(this.props.pagination));
+    }
 
     render() {
         const { dispatch, articles, pagination } = this.props;
