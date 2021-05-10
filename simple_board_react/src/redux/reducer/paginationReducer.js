@@ -5,7 +5,7 @@ export default function pagination(state, action) {
 
     switch (action.type) {
         case MOVE_PAGE:
-            return {...pagination, currentPage: action.pageNo};
+            return action.pagination;
         case CALCULATE_PAGINATION:
             const paginationAfterCalculate = {...pagination};
             paginationAfterCalculate.lastPage = Math.ceil(action.totalCount / 10);

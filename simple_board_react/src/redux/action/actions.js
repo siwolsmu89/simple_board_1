@@ -11,8 +11,8 @@ export function calculatePaginationAction(totalCount) {
     return { type: CALCULATE_PAGINATION, totalCount }
 }
 
-export function movePageAction(pageNo) {
-    return { type: MOVE_PAGE, pageNo }
+export function movePageAction(pagination) {
+    return { type: MOVE_PAGE, pagination }
 }
 
 export function addArticleAction(article) {
@@ -39,9 +39,22 @@ export function getArticles(pagination) {
             dataType:'json',
             data: { pagination }
         }).then(response => {
-            console.log(response);
             dispatch(getArticlesAction(response.data.articles));
             dispatch(calculatePaginationAction(response.data.totalCount));
+        })
+    }
+}
+
+export function movePage(pagination) {
+    return function (dispatch) {
+        axios({
+            url:'/articles',
+            method:'post',
+            dataType:'json',
+            data: { pagination }
+        }).then(response => {
+            dispatch(getArticlesAction(response.data.articles));
+            dispatch(movePageAction(pagination));
         })
     }
 }

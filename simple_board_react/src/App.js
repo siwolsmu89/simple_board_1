@@ -4,7 +4,7 @@ import ArticleList from "./components/view/article-list/ArticleList";
 import {
     addNewArticle,
     getArticles,
-    movePageAction,
+    movePage,
     updateArticleView
 } from "./redux/action/actions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -31,7 +31,7 @@ class App extends Component {
                         <ArticleList
                             articles={ articles }
                             pagination={ pagination }
-                            movePage={ pageNo => dispatch(movePageAction(pageNo)) }
+                            movePage={ pagination => dispatch(movePage(pagination)) }
                         />
                     </Route>
                     <Route path="/write">

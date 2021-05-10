@@ -23,7 +23,7 @@ export default class ArticleList extends Component {
                 <button
                     key={ pageNumber }
                     className={ `btn-page ${pagination.currentPage === pageNumber ? 'active' : '' }` }
-                    onClick={ () => movePage(pageNumber) }
+                    onClick={ () => movePage({...pagination, currentPage: pageNumber}) }
                 >{pageNumber}</button>
             )
         );
@@ -90,7 +90,7 @@ export default class ArticleList extends Component {
                                 if (pagination.currentPage === 1) {
                                     return;
                                 }
-                                movePage(pagination.currentPage - 1)
+                                movePage({...pagination, currentPage: pagination.currentPage - 1})
                             } }
                         >&laquo;</button>
                             { pageList }
@@ -100,7 +100,7 @@ export default class ArticleList extends Component {
                                 if (pagination.currentPage === pagination.lastPage) {
                                     return;
                                 }
-                                movePage(pagination.currentPage + 1)
+                                movePage({...pagination, currentPage: pagination.currentPage + 1})
                             } }
                         >&raquo;</button>
                     </div>
