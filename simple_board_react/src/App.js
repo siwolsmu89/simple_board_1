@@ -6,7 +6,7 @@ import {
     getArticles,
     movePage,
     updateArticleView
-} from "./redux/action/actions";
+} from "./redux/action/axiosActions";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ArticleWrite from "./components/view/article-write/ArticleWrite";
 import "./App.css";
