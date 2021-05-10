@@ -4,7 +4,12 @@ export const ADD_ARTICLE = 'ADD_ARTICLE';
 export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';
 export const UPDATE_ARTICLE_VIEW = 'UPDATE_ARTICLE_VIEW';
 export const GET_ARTICLES = 'GET_ARTICLES';
+export const CALCULATE_PAGINATION = 'CALCULATE_PAGINATION';
 export const MOVE_PAGE = 'MOVE_PAGE';
+
+export function calculatePaginationAction(totalCount) {
+    return { type: CALCULATE_PAGINATION, totalCount }
+}
 
 export function movePageAction(pageNo) {
     return { type: MOVE_PAGE, pageNo }
@@ -34,7 +39,9 @@ export function getArticles(pagination) {
             dataType:'json',
             data: { pagination }
         }).then(response => {
-            dispatch(getArticlesAction(response.data));
+            console.log(response);
+            dispatch(getArticlesAction(response.data.articles));
+            dispatch(calculatePaginationAction(response.data.totalCount));
         })
     }
 }

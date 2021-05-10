@@ -4,13 +4,29 @@ module.exports = (app) => {
     // '/articles' url에 대한 post 요청 처리
     app.post('/articles', function(req, res) {
         const pagination = req.body.pagination;
-        const sqlObj = {
+        let selectResult = {};
+        let sqlObj = {
             id: 'getArticleList',
             type: 'select'
         }
-        articleMapper(sqlObj, pagination, (result) => {
-            res.send(result);
+        const selectParams = {
+            articleStart: (pagination.currentPage - 1) * 10 + 1,
+            articleEnd: (pagination.currentPage) * 10
+        }
+
+        articleMapper(sqlObj, selectParams, (result) => {
+            selectResult.articles = result;
+            sqlObj = {
+                id: 'getTotalArticleCount',
+                type: 'select'
+            }
+            articleMapper(sqlObj, selectParams, (result) => {
+                selectResult.totalCount = result[0].totalCount;
+                res.send(selectResult);
+            });
         });
+
+
     });
 
     app.post('/articleView', function(req, res) {

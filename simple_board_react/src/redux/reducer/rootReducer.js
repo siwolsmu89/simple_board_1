@@ -4,9 +4,9 @@ import articles from "./articleReducer";
 const initialState = {
     articles: [],
     pagination: {
-        currentPage: 4,
+        currentPage: 1,
         pageSize: 5,
-        lastPage: 16
+        lastPage: 1
     }
 }
 

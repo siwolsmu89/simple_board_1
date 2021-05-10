@@ -3,7 +3,27 @@
 <mapper namespace="articleMapper">
     <select id="getArticleList">
         SELECT *
-        FROM simple_board_1
+        FROM
+            (
+                SELECT
+                    ROW_NUMBER() OVER(ORDER BY `no` ASC) AS rownum,
+                    `no`,
+                    `writer`,
+                    `text`,
+                    `title`,
+                    `views`,
+                    `createdDate`,
+                    `lastUpdatedDate`
+                FROM
+                    simple_board_1
+            ) A
+        WHERE A.rownum BETWEEN CAST(#{articleStart} AS INTEGER) AND CAST(#{articleEnd} AS INTEGER)
+    </select>
+    <select id="getTotalArticleCount">
+        SELECT
+            COUNT(`no`) as totalCount
+        FROM
+            simple_board_1
     </select>
     <select id="getArticleByNo">
         SELECT *

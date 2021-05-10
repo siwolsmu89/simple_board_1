@@ -27,7 +27,7 @@ module.exports = (sqlObj, params, callback) => {
             try {
                 result.status = 'success';
                 result.data = '';
-                result.data = JSON.stringify([...rows]);
+                result.data = rows;
             } catch (e) {
                 result.status = 'failed';
                 result.message = e.toString();
