@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ArticleWrite from "./components/view/article-write/ArticleWrite";
 import "./App.css";
 import ArticleDetail from "./components/view/article-detail/ArticleDetail";
+import Spinner from "./components/view/spinner/Spinner";
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
                 <div className="title">
                     Simple Board
                 </div>
+                <Spinner />
                 <Router>
                     <Route exact path="/">
                         <ArticleList
