@@ -46,11 +46,6 @@ export default class ArticleDetail extends Component {
                 <section className="article-detail-wrapper">
                     { articleBody }
                 </section>
-                <section className="article-comment-wrapper">
-                    <div className="article-detail-comment">
-                        Comments here
-                    </div>
-                </section>
             </div>
         );
 

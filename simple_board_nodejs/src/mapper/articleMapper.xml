@@ -16,4 +16,11 @@
             views = views + 1
         WHERE `no` = #{no}
     </update>
+    <insert id="addNewArticle">
+        INSERT INTO simple_board_1
+            ( `no`, `title`, `text` )
+        VALUES
+            ( #{no}, #{title}, #{text})
+        RETURNING *
+    </insert>
 </mapper>

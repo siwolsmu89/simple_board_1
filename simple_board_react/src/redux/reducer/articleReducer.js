@@ -5,18 +5,7 @@ export default function articles(state, action) {
 
     switch (action.type) {
         case ADD_ARTICLE:
-            let nextNo = 1;
-            for (const article of articles) {
-                nextNo = article.no >= nextNo ? article.no + 1 : nextNo;
-            }
-
-            const newArticle = {
-                no: nextNo,
-                title: action.title,
-                text: action.text,
-                comments: [],
-                views: 0
-            }
+            const newArticle = action.article;
 
             return [...articles, newArticle];
         case UPDATE_ARTICLE_VIEW:

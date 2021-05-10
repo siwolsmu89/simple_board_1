@@ -10,8 +10,8 @@ export function movePageAction(pageNo) {
     return { type: MOVE_PAGE, pageNo }
 }
 
-export function addArticleAction(title, text) {
-    return { type: ADD_ARTICLE, title, text }
+export function addArticleAction(article) {
+    return { type: ADD_ARTICLE, article }
 }
 
 export function updateArticleAction(article) {
@@ -51,4 +51,18 @@ export function updateArticleView(no) {
             dispatch(updateArticleViewAction(updatedArticle));
         })
     }
+}
+
+export function addNewArticle(article) {
+   return function(dispatch) {
+       axios({
+           url: '/addArticle',
+           method: 'post',
+           dataType: 'json',
+           data: article
+       }).then((response) => {
+           const addedArticle = response.data[0];
+           dispatch(addArticleAction(addedArticle));
+       });
+   }
 }

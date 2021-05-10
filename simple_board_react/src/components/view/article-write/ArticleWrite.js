@@ -8,7 +8,7 @@ import "./ArticleWrite.css";
 export default class ArticleWrite extends Component {
 
     render() {
-        const { addArticle } = this.props;
+        const { articles, addArticle } = this.props;
         let titleInput = '';
         let textInput = '';
 
@@ -55,6 +55,11 @@ export default class ArticleWrite extends Component {
                         <Link
                             to="/"
                             onClick={ (e) => {
+                                let articleNo = 1;
+                                for (const article of articles) {
+                                    articleNo = article.no >= articleNo ? article.no + 1 : articleNo;
+                                }
+
                                 const articleTitle = titleInput.value;
                                 const articleText = textInput.value;
 
@@ -62,7 +67,7 @@ export default class ArticleWrite extends Component {
                                     e.preventDefault();
                                     return;
                                 }
-                                addArticle(articleTitle, articleText);
+                                addArticle({ no: articleNo, title: articleTitle, text: articleText });
                             } }
                         >
                             <img

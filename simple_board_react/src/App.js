@@ -2,7 +2,7 @@ import {Component} from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/view/article-list/ArticleList";
 import {
-    addArticleAction,
+    addNewArticle,
     getArticles,
     movePageAction,
     updateArticleView
@@ -36,7 +36,8 @@ class App extends Component {
                     </Route>
                     <Route path="/write">
                         <ArticleWrite
-                            addArticle={ (title, text) => dispatch(addArticleAction(title, text))}
+                            articles={ articles }
+                            addArticle={ (article) => dispatch(addNewArticle(article))}
                         />
                     </Route>
                     <Route path="/detail/:no"
