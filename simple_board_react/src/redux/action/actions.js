@@ -62,6 +62,7 @@ export function addNewArticle(article) {
            data: article
        }).then((response) => {
            const addedArticle = response.data[0];
+           console.log(addedArticle);
            dispatch(addArticleAction(addedArticle));
        });
    }

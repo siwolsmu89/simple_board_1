@@ -12,6 +12,18 @@ export default class ArticleDetail extends Component {
         updateViewCount(Number(no));
     }
 
+    convertArticleText(text) {
+        const textLines = text.split("\n");
+        return textLines.map(
+            (line) => (
+                    <span>
+                        {line}
+                        <br/>
+                    </span>
+            )
+        )
+    }
+
     render() {
         const { articles } = this.props;
         const { no } = this.props.match.params;
@@ -25,7 +37,7 @@ export default class ArticleDetail extends Component {
                         { detailArticle.title }
                     </div>
                     <div className="article-detail-content">
-                        { detailArticle.text }
+                        { this.convertArticleText(detailArticle.text) }
                     </div>
                 </div>
             );

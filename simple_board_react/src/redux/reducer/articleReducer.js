@@ -6,6 +6,7 @@ export default function articles(state, action) {
     switch (action.type) {
         case ADD_ARTICLE:
             const newArticle = action.article;
+            console.log(newArticle);
 
             return [...articles, newArticle];
         case UPDATE_ARTICLE_VIEW:
