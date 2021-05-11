@@ -38,7 +38,6 @@ class App extends Component {
                     </Route>
                     <Route path="/write">
                         <ArticleWrite
-                            articles={ articles }
                             addArticle={ (article) => dispatch(addNewArticle(article))}
                         />
                     </Route>

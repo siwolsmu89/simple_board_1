@@ -8,7 +8,7 @@ import "./ArticleWrite.css";
 export default class ArticleWrite extends Component {
 
     render() {
-        const { articles, addArticle } = this.props;
+        const { addArticle } = this.props;
         let titleInput = '';
         let textInput = '';
 
