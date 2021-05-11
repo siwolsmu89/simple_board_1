@@ -67,3 +67,17 @@ export function addNewArticle(article, pagination) {
         });
     }
 }
+
+export function deleteArticle(no, pagination) {
+    return function(dispatch) {
+        dispatch(startSpinningAction());
+        axios({
+            url: '/deleteArticle',
+            method: 'post',
+            dataType: 'json',
+            data: { no }
+        }).then(() => {
+            dispatch(getArticles(pagination));
+        })
+    }
+}

@@ -56,5 +56,16 @@ module.exports = (app) => {
             res.send(result);
             console.log(result);
         });
+    });
+
+    app.post('/deleteArticle', function(req, res) {
+        console.log("article delete", req.body);
+        const deleteSql = {
+            id: 'deleteArticle',
+            type: 'delete'
+        }
+        articleMapper(deleteSql, req.body, (result) => {
+            res.send(result);
+        })
     })
 }

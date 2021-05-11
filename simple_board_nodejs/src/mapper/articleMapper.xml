@@ -43,4 +43,9 @@
             ( #{title}, #{text})
         RETURNING *
     </insert>
+    <delete id="deleteArticle">
+        DELETE FROM simple_board_1
+        WHERE `no` = #{no}
+        RETURNING *
+    </delete>
 </mapper>

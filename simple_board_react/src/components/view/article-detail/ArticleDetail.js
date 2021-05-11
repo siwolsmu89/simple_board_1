@@ -27,7 +27,7 @@ export default class ArticleDetail extends Component {
     }
 
     render() {
-        const { articles } = this.props;
+        const { articles, deleteArticle } = this.props;
         const { no } = this.props.match.params;
         const detailArticle = articles.find( article => article.no === Number(no));
 
@@ -66,6 +66,9 @@ export default class ArticleDetail extends Component {
                             <img
                                 src={ deleteIcon }
                                 alt="delete button icon"
+                                onClick={ () => {
+                                    deleteArticle(no);
+                                }}
                             />
                         </Link>
                         <Link to="/">

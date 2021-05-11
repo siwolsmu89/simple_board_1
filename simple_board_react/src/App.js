@@ -2,7 +2,7 @@ import {Component} from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/view/article-list/ArticleList";
 import {
-    addNewArticle,
+    addNewArticle, deleteArticle,
     getArticles,
     movePage,
     updateArticleView
@@ -49,6 +49,7 @@ class App extends Component {
                                    {...states}
                                    articles={ articles }
                                    updateViewCount={ (no) => dispatch(updateArticleView(no)) }
+                                   deleteArticle={ (no) => dispatch(deleteArticle(no, pagination)) }
                                />
                            }
                     />
