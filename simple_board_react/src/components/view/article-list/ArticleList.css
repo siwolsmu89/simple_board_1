@@ -18,10 +18,12 @@
     background-color: #e8e8e8;
 }
 
-
+.list-table-wrapper {
+    min-height: 430px;
+}
 
 .list-table {
-    margin: 0 30px 30px;
+    margin: 10px 30px 30px;
     border-radius: 5px;
     border: none;
     border-collapse: collapse;
@@ -36,8 +38,7 @@
 }
 
 .list-table thead th {
-    color: #ffffff;
-    background: black;
+    border-bottom: 2px solid darkgray;
 }
 
 .list-table thead th:nth-child(2) {
@@ -74,8 +75,8 @@
     border: 2px solid lightgray;
     display: inline-block;
     text-align: center;
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     margin: 5px;
     cursor: pointer;
     border-radius:20%;
@@ -86,9 +87,9 @@
 }
 
 .pagination button.btn-page.active {
-    border: 1px solid #848484;
-    background-color: black;
+    border: 2px solid black;
     color: white;
+    background-color: darkgray;
 }
 
 .pagination button.disabled {

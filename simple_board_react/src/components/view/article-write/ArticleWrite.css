@@ -1,3 +1,7 @@
+.article-write-wrapper {
+    min-height: 430px;
+}
+
 .article-write {
     margin: 0 30px 30px;
     width: 90%;
@@ -10,7 +14,7 @@
     padding: 5px;
     margin: 10px;
     border: none;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 2px solid lightgray;
     outline: none;
     font-size: 1.5rem;
 }
@@ -21,9 +25,9 @@
 
 .article-content textarea {
     width: 500px;
-    height: 170px;
+    height: 300px;
     padding: 15px;
-    border: 2px ridge lightgray;
+    border: 2px solid lightgray;
     font-size: 1.25rem;
     resize: none;
     outline: none;

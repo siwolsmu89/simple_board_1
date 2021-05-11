@@ -1,6 +1,8 @@
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import listIcon from "../../../resources/list-button.png";
+import deleteIcon from "../../../resources/delete-button.png";
+import editIcon from "../../../resources/edit-button.png";
 import './ArticleDetail.css';
 
 export default class ArticleDetail extends Component {
@@ -57,6 +59,22 @@ export default class ArticleDetail extends Component {
                 </section>
                 <section className="article-detail-wrapper">
                     { articleBody }
+                </section>
+                <section className="icon-box-wrapper">
+                    <div className="icon-box">
+                        <Link to="/">
+                            <img
+                                src={ deleteIcon }
+                                alt="delete button icon"
+                            />
+                        </Link>
+                        <Link to="/">
+                            <img
+                                src={ editIcon }
+                                alt="edit button icon"
+                            />
+                        </Link>
+                    </div>
                 </section>
             </div>
         );
