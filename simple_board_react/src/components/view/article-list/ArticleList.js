@@ -1,6 +1,6 @@
 import {Component} from "react";
 import "./ArticleList.css";
-import editIcon from '../../../resources/edit-button.png';
+import writeIcon from '../../../resources/write-button.png';
 import {Link} from "react-router-dom";
 
 export default class ArticleList extends Component {
@@ -39,7 +39,7 @@ export default class ArticleList extends Component {
                     <td className="article-no">{ no }</td>
                     <td className="article-title">
                         <Link
-                            to={ "/detail/" + no }
+                            to={ "/detail/view/" + no }
                         >
                             { title }
                         </Link>
@@ -62,8 +62,8 @@ export default class ArticleList extends Component {
                     <div className="icon-box">
                         <Link to="/write">
                             <img
-                                src={editIcon}
-                                alt="edit button icon"
+                                src={ writeIcon }
+                                alt="write button icon"
                             />
                         </Link>
                     </div>

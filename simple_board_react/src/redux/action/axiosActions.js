@@ -81,3 +81,17 @@ export function deleteArticle(no, pagination) {
         })
     }
 }
+
+export function editArticle(article, pagination) {
+    return function(dispatch) {
+        dispatch(startSpinningAction());
+        axios({
+            url: '/editArticle',
+            method: 'post',
+            dataType: 'json',
+            data: article
+        }).then(() => {
+            dispatch(getArticles(pagination));
+        });
+    }
+}

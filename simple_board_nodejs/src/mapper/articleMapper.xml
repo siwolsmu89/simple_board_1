@@ -48,4 +48,12 @@
         WHERE `no` = #{no}
         RETURNING *
     </delete>
+    <update id="editArticle">
+        UPDATE simple_board_1
+        SET
+            `title` = #{title},
+            `text` = #{text},
+            `lastUpdatedDate` = NOW()
+        WHERE `no` = #{no}
+    </update>
 </mapper>

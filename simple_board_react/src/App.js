@@ -2,7 +2,7 @@ import {Component} from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/view/article-list/ArticleList";
 import {
-    addNewArticle, deleteArticle,
+    addNewArticle, deleteArticle, editArticle,
     getArticles,
     movePage,
     updateArticleView
@@ -40,16 +40,18 @@ class App extends Component {
                     </Route>
                     <Route path="/write">
                         <ArticleWrite
+                            article={ null }
                             addArticle={ (article) => dispatch(addNewArticle(article, pagination))}
                         />
                     </Route>
-                    <Route path="/detail/:no"
+                    <Route path="/detail/:mode/:no"
                            render={ (states) =>
                                <ArticleDetail
                                    {...states}
                                    articles={ articles }
                                    updateViewCount={ (no) => dispatch(updateArticleView(no)) }
                                    deleteArticle={ (no) => dispatch(deleteArticle(no, pagination)) }
+                                   editArticle={ (article) => dispatch(editArticle(article, pagination)) }
                                />
                            }
                     />

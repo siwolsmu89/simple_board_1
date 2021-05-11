@@ -67,5 +67,18 @@ module.exports = (app) => {
         articleMapper(deleteSql, req.body, (result) => {
             res.send(result);
         })
-    })
+    });
+
+    app.post('/editArticle', function(req, res) {
+        console.log("article edit", req.body);
+        const updateSql = {
+            id: 'editArticle',
+            type: 'update'
+        }
+        articleMapper(updateSql, req.body, (result) => {
+            res.send(result);
+            console.log(result);
+        });
+    });
+
 }
