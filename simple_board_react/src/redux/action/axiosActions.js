@@ -49,16 +49,16 @@ export function updateArticleView(no) {
     }
 }
 
-export function addNewArticle(article) {
+export function addNewArticle(article, pagination) {
     return function(dispatch) {
         axios({
             url: '/addArticle',
             method: 'post',
             dataType: 'json',
             data: article
-        }).then((response) => {
-            const addedArticle = response.data[0];
-            dispatch(addArticleAction(addedArticle));
+        }).then(() => {
+            const paginationAfterAdd = {...pagination, currentPage: pagination.lastPage }
+            dispatch(movePage(paginationAfterAdd));
         });
     }
 }

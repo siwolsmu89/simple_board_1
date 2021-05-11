@@ -38,9 +38,9 @@
     </update>
     <insert id="addNewArticle">
         INSERT INTO simple_board_1
-            ( `no`, `title`, `text` )
+            ( `title`, `text` )
         VALUES
-            ( #{no}, #{title}, #{text})
+            ( #{title}, #{text})
         RETURNING *
     </insert>
 </mapper>

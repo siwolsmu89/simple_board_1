@@ -38,7 +38,7 @@ class App extends Component {
                     </Route>
                     <Route path="/write">
                         <ArticleWrite
-                            addArticle={ (article) => dispatch(addNewArticle(article))}
+                            addArticle={ (article) => dispatch(addNewArticle(article, pagination))}
                         />
                     </Route>
                     <Route path="/detail/:no"
