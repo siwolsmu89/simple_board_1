@@ -4,6 +4,8 @@ export const UPDATE_ARTICLE_VIEW = 'UPDATE_ARTICLE_VIEW';
 export const GET_ARTICLES = 'GET_ARTICLES';
 export const CALCULATE_PAGINATION = 'CALCULATE_PAGINATION';
 export const MOVE_PAGE = 'MOVE_PAGE';
+export const SPINNING_ON = 'SPINNING_ON';
+export const SPINNING_OFF = 'SPINNING_OFF';
 
 export function calculatePaginationAction(totalCount) {
     return { type: CALCULATE_PAGINATION, totalCount }
@@ -27,4 +29,12 @@ export function updateArticleViewAction(article) {
 
 export function getArticlesAction(articles) {
     return { type: GET_ARTICLES, articles }
+}
+
+export function startSpinningAction() {
+    return { type: SPINNING_ON }
+}
+
+export function stopSpinningAction() {
+    return { type: SPINNING_OFF }
 }

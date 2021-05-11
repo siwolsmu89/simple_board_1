@@ -1,14 +1,14 @@
 import axios from "axios";
 import {
-    addArticleAction,
     calculatePaginationAction,
     getArticlesAction,
-    movePageAction,
+    movePageAction, startSpinningAction, stopSpinningAction,
     updateArticleViewAction
 } from "./actions";
 
 export function getArticles(pagination) {
     return function (dispatch) {
+        dispatch(startSpinningAction());
         axios({
             url:'/articles',
             method:'post',
@@ -17,12 +17,14 @@ export function getArticles(pagination) {
         }).then(response => {
             dispatch(getArticlesAction(response.data.articles));
             dispatch(calculatePaginationAction(response.data.totalCount));
+            dispatch(stopSpinningAction());
         })
     }
 }
 
 export function movePage(pagination) {
     return function (dispatch) {
+        dispatch(startSpinningAction());
         axios({
             url:'/articles',
             method:'post',
@@ -31,12 +33,14 @@ export function movePage(pagination) {
         }).then(response => {
             dispatch(getArticlesAction(response.data.articles));
             dispatch(movePageAction(pagination));
+            dispatch(stopSpinningAction());
         })
     }
 }
 
 export function updateArticleView(no) {
     return function(dispatch) {
+        dispatch(startSpinningAction());
         axios({
             url: '/articleView',
             method: 'post',
@@ -45,20 +49,21 @@ export function updateArticleView(no) {
         }).then((response) => {
             const updatedArticle = response.data[0];
             dispatch(updateArticleViewAction(updatedArticle));
+            dispatch(stopSpinningAction());
         })
     }
 }
 
 export function addNewArticle(article, pagination) {
     return function(dispatch) {
+        dispatch(startSpinningAction());
         axios({
             url: '/addArticle',
             method: 'post',
             dataType: 'json',
             data: article
         }).then(() => {
-            const paginationAfterAdd = {...pagination, currentPage: pagination.lastPage }
-            dispatch(movePage(paginationAfterAdd));
+            dispatch(getArticles(pagination));
         });
     }
 }

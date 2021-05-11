@@ -20,14 +20,16 @@ class App extends Component {
     }
 
     render() {
-        const { dispatch, articles, pagination } = this.props;
+        const { dispatch, articles, pagination, spinning } = this.props;
 
         return (
             <div className="simple-board-app">
                 <div className="title">
                     Simple Board
                 </div>
-                <Spinner />
+                <Spinner
+                    spinning={ spinning }
+                />
                 <Router>
                     <Route exact path="/">
                         <ArticleList
@@ -57,8 +59,8 @@ class App extends Component {
 }
 
 function selector(state) {
-    const { articles, pagination } = state;
-    return { articles, pagination };
+    const { articles, pagination, spinning } = state;
+    return { articles, pagination, spinning };
 }
 
 export default connect(selector)(App);

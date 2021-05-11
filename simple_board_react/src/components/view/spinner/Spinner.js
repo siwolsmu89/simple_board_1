@@ -4,10 +4,10 @@ import './Spinner.css'
 
 export default class Spinner extends Component {
     render() {
-        const { fetching } = this.props;
+        const { spinning } = this.props;
 
         return (
-            <div className={`spinner ${ fetching ? 'active' : '' }`}>
+            <div className={`spinner ${ spinning ? 'active' : '' }`}>
                 <Loader
                     type="Puff"
                     color="darkgray"
