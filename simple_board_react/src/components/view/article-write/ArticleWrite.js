@@ -55,11 +55,6 @@ export default class ArticleWrite extends Component {
                         <Link
                             to="/"
                             onClick={ (e) => {
-                                let articleNo = 1;
-                                for (const article of articles) {
-                                    articleNo = article.no >= articleNo ? article.no + 1 : articleNo;
-                                }
-
                                 const articleTitle = titleInput.value;
                                 const articleText = textInput.value;
 
@@ -67,7 +62,7 @@ export default class ArticleWrite extends Component {
                                     e.preventDefault();
                                     return;
                                 }
-                                addArticle({ no: articleNo, title: articleTitle, text: articleText });
+                                addArticle({ title: articleTitle, text: articleText });
                             } }
                         >
                             <img
